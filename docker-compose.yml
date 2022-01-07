@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    web:
+        build: .
+        container_name: Muhammad_Fahri_Alfianur
+        #command: python manage.py runserver 0.0.0.0:9007
+        command : gunicorn mysite.wsgi:application --bind 0.0.0.0:9001
+        volumes:
+            - .:/app
+        ports:
+            - "9001:9001"
